@@ -38,5 +38,27 @@ public class DriverTest {
         for (MegaWellnessActivityEvent e: events){
             e.displayMegaWellnessDetails();
         }
+
+        Event mentalWellnessEvent = new Event(
+            "Mental Wellness Talk",
+            "Educational",
+            "Take care of your mental health",
+            "Hive Banquet Hall",
+            LocalDate.of(2025, 5, 20),
+            LocalTime.of(9, 0),
+            240,
+            "SLE"
+        );
+
+        MegaWellnessActivityEvent mentalEvent = new MegaWellnessActivityEvent(mentalWellnessEvent, true);
+
+        mentalEvent.addActivity(new WellnessActivity("Mental wellness chart", "Mental", 240, "Hive Banquet Hall", 150));
+        mentalEvent.addGame(new Games("Riddles", "Puzzle", 4, "Hive Banquet Hall", 15, "Snacks"));
+
+
+        events.add(mentalEvent);
+        for (MegaWellnessActivityEvent e: events){
+            e.displayMegaWellnessDetails();
+        }
     }
 }

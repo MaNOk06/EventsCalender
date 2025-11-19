@@ -50,7 +50,7 @@ public class Event implements infoEvent, timelinesEvent {
         this.timeline = new ArrayList<>();
     }
 
-    // --- Interface Implementation: timelinesEvent ---
+    // Interface Implementation: timelinesEvent 
     @Override
     public void addActivity(String activity, LocalTime startTime, int duration, LocalTime endTime){
         timeline.add(new Activity(activity, startTime, duration, endTime));
@@ -65,14 +65,14 @@ public class Event implements infoEvent, timelinesEvent {
         return sb.toString();
     }
 
-    // --- Interface Implementation: infoEvent ---
+    // Interface Implementation: infoEvent
     @Override public String getEventName() { return eventName; }
     @Override public String getEventType() { return eventType; }   
     @Override public String getEventDescription() { return eventDescription; }
     @Override public String getEventLocation() { return eventLocation; }
     @Override public String getOrganisers() { return eventOrganisers; }
 
-    // --- Class Specific Methods and Getters/Setters ---
+    // Class Specific Methods and Getters/Setters
     public void displayEventDetails(){
         System.out.println();
         System.out.println("Event: " + eventName);

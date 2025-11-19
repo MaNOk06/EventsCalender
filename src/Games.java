@@ -45,7 +45,7 @@ public class Games implements timelinesEvent, infoEvent {
         this.prize = prize;
     }
 
-    // --- Interface Implementation: timelinesEvent ---
+    // Interface Implementation: timelinesEvent
     @Override
     public void addActivity(String activity, LocalTime startTime, int duration, LocalTime endTime){
         timeline.add(new GameRound(activity, startTime, duration, endTime));
@@ -60,14 +60,13 @@ public class Games implements timelinesEvent, infoEvent {
         return sb.toString();
     }
     
-    // --- Interface Implementation: infoEvent ---
+    // Interface Implementation: infoEvent
     @Override public String getEventName(){ return gameName; }
     @Override public String getEventDescription(){ return gameType + " game for up to " + maxPlayers + " , prize: " + prize; }
     @Override public String getEventType(){ return gameType; }
     @Override public String getEventLocation(){ return location; }
     @Override public String getOrganisers(){ return "There is no Game Host"; }
 
-    // --- Class Specific Methods (Required for GamesTest.java) ---
     public void displayGameDetails(){
         System.out.println("Game Name: " + gameName);
         System.out.println("Game Type: " + gameType);
@@ -77,7 +76,6 @@ public class Games implements timelinesEvent, infoEvent {
         System.out.println("Prize for winner: " + prize);
     }
 
-    // These specific getters are required by your GamesTest.java
     public String getGameName() { return gameName; }
     public String getGameType() { return gameType; }
     public int getMaxPlayers() { return maxPlayers; }
