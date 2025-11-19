@@ -1,4 +1,4 @@
-# Ashesi Events Calendar - Assignment 2
+# Events Calendar - Assignment 2
 
 ## Project Overview
 This project is a Java-based application designed to manage and schedule events for the Ashesi University Events Calendar. It uses a Composition-based design pattern to manage a `MegaWellnessActivityEvent`, which is composed of a main `Event`, various `Games`, and `WellnessActivity` sessions.
