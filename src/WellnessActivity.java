@@ -1,5 +1,5 @@
 public class WellnessActivity {
-    //  Attributes
+    // Attributes
     private String activityName;
     private String activityType;
     private int sessionDuration;
@@ -15,42 +15,30 @@ public class WellnessActivity {
         this.availableSlots = availableSlots;
     }
 
-    //
     public void displayEventDetails(){
-
+        System.out.println("Activity Name: " + activityName);
+        System.out.println("Activity Type: " + activityType);
+        System.out.println("Duration: " + sessionDuration);
+        System.out.println("Location: " + location);
+        System.out.println("Available Slots: " + availableSlots);
     }
 
     // Getters
-    public String getActivityName(){
-        return activityName;
-    }
-    public String getActivityType(){
-        return activityType;
-    }
-    public int getSessionDuration(){
-        return sessionDuration;
-    }
-    public String getLocation(){
-        return location;
-    }
-    public int getAvailableSlots(){
-        return availableSlots;
-    }
+    public String getActivityName(){ return activityName; }
+    public String getActivityType(){ return activityType; }
+    public int getSessionDuration(){ return sessionDuration; }
+    public String getLocation(){ return location; }
+    public int getAvailableSlots(){ return availableSlots; }
 
     // Setters
-    public void setActivityName(String name){
-        this.activityName = name;
-    }
-    public void setAactivityType(String type){
-        this.activityType = type;
-    }
-    public void setSessionDuration(int duration){
-        this.sessionDuration = duration;
-    }
-    public void setLocation( String locationActivity){
-        this.location = locationActivity;
-    }
-    public void setAvailableSlots(int slots){
-        this.availableSlots = slots;
+    public void setActivityName(String name){ this.activityName = name; }
+    public void setAactivityType(String type){ this.activityType = type; }
+    public void setSessionDuration(int duration){ this.sessionDuration = duration; }
+    public void setLocation(String locationActivity){ this.location = locationActivity; }
+    public void setAvailableSlots(int slots){ this.availableSlots = slots; }
+
+    @Override
+    public String toString(){
+        return activityName + " at " + location;
     }
 }

@@ -17,7 +17,6 @@ public class MegaWellnessActivityEvent{
         this.refreshmentsAvailable = refreshmentsAvailable;
     }
 
-    //
     public void displayMegaWellnessDetails(){
         eventDetails.displayEventDetails();
         System.out.println("Number of Games: " + games.size());
@@ -34,21 +33,10 @@ public class MegaWellnessActivityEvent{
     }
 
     // Getters
-    public Event getEventDetails(){
-        return eventDetails;
-    }
-
-    public List<WellnessActivity> getActivities(){
-        return activities;
-    }
-
-    public List<Games> getGames(){
-        return games;
-    }
-
-    public boolean refreshmentsAvailable(){
-        return refreshmentsAvailable;
-    }
+    public Event getEventDetails(){ return eventDetails; }
+    public List<WellnessActivity> getActivities(){ return activities; }
+    public List<Games> getGames(){ return games; }
+    public boolean refreshmentsAvailable(){ return refreshmentsAvailable; }
 
     // Setters
     public void setRefreshmentsAvailable(boolean confirm){

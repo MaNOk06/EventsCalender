@@ -39,5 +39,4 @@ public class DriverTest {
             e.displayMegaWellnessDetails();
         }
     }
-    
 }

@@ -1,4 +1,8 @@
-public class Games {
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Games implements timelinesEvent, infoEvent {
 
     // Attributes
     private String gameName;
@@ -8,6 +12,28 @@ public class Games {
     private int duration; // in minutes
     private String prize;
 
+    // Internal inner class for Games timeline (Fixes "Event.Activity" error)
+    private class GameRound {
+        String activity;
+        LocalTime start;
+        int duration;
+        LocalTime end;
+
+        GameRound(String activity, LocalTime start, int duration, LocalTime end) {
+            this.activity = activity;
+            this.start = start;
+            this.duration = duration;
+            this.end = end;
+        }
+
+        @Override
+        public String toString() {
+            return start + "-" + end + ": " + activity + duration;
+        }
+    }
+
+    // Timeline attributes
+    private List<GameRound> timeline = new ArrayList<>();
 
     // Constructor
     public Games(String gameName, String gameType, int maxPlayers, String location, int duration, String prize){
@@ -18,65 +44,44 @@ public class Games {
         this.duration = duration;
         this.prize = prize;
     }
-    
-    // 
-    public void displayGameDetails(){
 
+    // --- Interface Implementation: timelinesEvent ---
+    @Override
+    public void addActivity(String activity, LocalTime startTime, int duration, LocalTime endTime){
+        timeline.add(new GameRound(activity, startTime, duration, endTime));
     }
-
-    // Getters
-    public String getGameName(){
-        return gameName;
-    }
-
-    public String getGameType(){
-        return gameType;
-    }
-
-    public int getMaxPlayers(){
-        return maxPlayers;
-    }
-
-    public String getLocation(){
-        return location;
-    }
-
-    public String getPrize(){
-        return prize;
-    }
-
-    public int getDuration(){
-        return duration;
-    }
-
-    // Setters
-    public void setGameName(String name){
-        this.gameName = name;
-    }
-
-    public void setGameType(String type){
-        this.gameType = type;
-    }
-
-    public void setMaxPlayers(int max){
-        this.maxPlayers = max;
-    }
-
-    public void setLocation(String loc){
-        this.location = loc;
-    }
-
-    public void setDuration(int mins){
-        this.duration = mins;
-    }
-
-    public void setPrize(String reward){
-        this.prize = reward;
-    }
-
 
     @Override
-    public String toString(){
-        return gameName + "at" + location;
+    public String getTimeline(){
+        StringBuilder sb = new StringBuilder();
+        for (GameRound a : timeline){
+            sb.append(a.toString() + "\n");
+        }
+        return sb.toString();
     }
+    
+    // --- Interface Implementation: infoEvent ---
+    @Override public String getEventName(){ return gameName; }
+    @Override public String getEventDescription(){ return gameType + " game for up to " + maxPlayers + " , prize: " + prize; }
+    @Override public String getEventType(){ return gameType; }
+    @Override public String getEventLocation(){ return location; }
+    @Override public String getOrganisers(){ return "There is no Game Host"; }
+
+    // --- Class Specific Methods (Required for GamesTest.java) ---
+    public void displayGameDetails(){
+        System.out.println("Game Name: " + gameName);
+        System.out.println("Game Type: " + gameType);
+        System.out.println("Maximum Number of Players: " + maxPlayers);
+        System.out.println("Location: " + location);
+        System.out.println("Duration: " + duration + " minutes.");
+        System.out.println("Prize for winner: " + prize);
+    }
+
+    // These specific getters are required by your GamesTest.java
+    public String getGameName() { return gameName; }
+    public String getGameType() { return gameType; }
+    public int getMaxPlayers() { return maxPlayers; }
+    public String getLocation() { return location; }
+    public int getDuration() { return duration; }
+    public String getPrize() { return prize; }
 }

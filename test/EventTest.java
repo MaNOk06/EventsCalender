@@ -20,7 +20,6 @@ public class EventTest {
 
         MegaWellnessActivityEvent event = new MegaWellnessActivityEvent(e, true);
 
-
         assertEquals("Massage Session", event.getEventDetails().getEventName());
         assertEquals("Wellness", event.getEventDetails().getEventType());
         assertEquals("To relieve stress during the semester", event.getEventDetails().getEventDescription());

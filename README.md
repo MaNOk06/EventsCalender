@@ -1,38 +1,29 @@
-## Getting Started
+# Ashesi Events Calendar - Assignment 2
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Project Overview
+This project is a Java-based application designed to manage and schedule events for the Ashesi University Events Calendar. It uses a Composition-based design pattern to manage a `MegaWellnessActivityEvent`, which is composed of a main `Event`, various `Games`, and `WellnessActivity` sessions.
 
-## Folder Structure
+## Structure
+- **src/**: Contains all source code files.
+  - `Event.java`: Core event class implementing `infoEvent` and `timelinesEvent`.
+  - `Games.java`: Represents game events, implements `infoEvent` and `timelinesEvent`.
+  - `WellnessActivity.java`: Represents wellness sessions.
+  - `MegaWellnessActivityEvent.java`: Composite class aggregating Event, Games, and Activities.
+  - `infoEvent.java`: Interface for basic event information.
+  - `timelinesEvent.java`: Interface for timeline management.
+  - `DriverTest.java`: Main driver to demonstrate functionality.
+- **test/**: Contains JUnit tests.
+- **bin/**: Compiled class files.
 
-The workspace contains two folders by default, where:
+## Interfaces (Assignment 2 Requirement)
+1. **infoEvent**: Enforces standard getters for event details (Name, Type, Location, etc.).
+2. **timelinesEvent**: Enforces methods for managing event schedules (`addActivity`, `getTimeline`).
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Design Choice (UML)
+The design follows the "Composition over Inheritance" principle:
+- `MegaWellnessActivityEvent` **HAS-A** `Event`.
+- `MegaWellnessActivityEvent` **HAS-MANY** `Games`.
+- `Event` and `Games` both **IMPLEMENT** `infoEvent` and `timelinesEvent`.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
-
-
-Submitting with UML diagram
-Event 1
-Ashesi Career Fair -> RecruitmentEvent
-Event Name: Ashesi Career Fair
-Event Type: Recriutment
-Date and Time:
-Location:
-Extra information:
-Why is it related to Ashesi:
-
-Event 2
-Guest Lecture on AI & Ethics -> TalkEvent
-Event Name: Guest Lecture on AI & Ethics
-Event Type: Talk
-Date and Time:
-Location:
-Extra information:
-Why is it related to Ashesi:
+## Running the Driver
+Open `src/DriverTest.java` and run the `main` method. It will create a Mega Wellness Day event, add massage sessions and foosball games, and display the full details in the console.

@@ -13,5 +13,4 @@ public class GamesTest {
         assertEquals(20, g.getDuration());
         assertEquals("Hallmark Voucher", g.getPrize());
     }
-    
 }
