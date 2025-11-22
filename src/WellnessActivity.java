@@ -1,4 +1,4 @@
-public class WellnessActivity {
+public class WellnessActivity implements infoEvent {
     // Attributes
     private String activityName;
     private String activityType;
@@ -23,6 +23,22 @@ public class WellnessActivity {
         System.out.println("Available Slots: " + availableSlots);
     }
 
+    // 
+    @Override
+    public String getEventName(){ return activityName; }
+
+    @Override
+    public String getEventType(){ return activityType; }
+
+    @Override
+    public String getEventLocation(){ return location; }
+
+    @Override
+    public String getEventDescription(){ return "Wellness Session (" + sessionDuration + " mins) with " + availableSlots + " slots."; }
+
+    @Override
+    public String getOrganisers(){ return "Wellness Team"; }
+    
     // Getters
     public String getActivityName(){ return activityName; }
     public String getActivityType(){ return activityType; }
